@@ -49,8 +49,12 @@ function showScoreBoard() {
     scoreboard.textContent = `Your Score: ${playerScore}  Computer Score: ${computerScore}`  ;
 }
 
+
 const rock = document.querySelector('.rock');
-rock.addEventListener('click', () => {
+rock.addEventListener('click', function rock () {
+    if(playerScore === 5 || computerScore ===5){
+        return;
+    }
     playRound('Rock');
     showResult();
     showScoreBoard();
@@ -58,7 +62,10 @@ rock.addEventListener('click', () => {
 );
 
 const paper = document.querySelector('.paper');
-paper.addEventListener('click', () => {
+paper.addEventListener('click', function paper () {
+    if(playerScore === 5 || computerScore ===5){
+        return;
+    }
     playRound('Paper');
     showResult();
     showScoreBoard();
@@ -66,13 +73,15 @@ paper.addEventListener('click', () => {
 );
 
 const scissors = document.querySelector('.scissors');
-scissors.addEventListener('click', () => {
+scissors.addEventListener('click', function scissors () {
+    if(playerScore === 5 || computerScore ===5){
+        return;
+    }
     playRound('Scissors');
     showResult();
     showScoreBoard();
     }
 );
-
 
 
 
