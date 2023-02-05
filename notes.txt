@@ -1,0 +1,13 @@
+function game(){
+    for (playerScore = 0, computerScore=0; playerScore < 5, computerScore <5;){
+        playRound();
+        console.log(`Your Score: ${playerScore} Computer Score: ${computerScore}`);
+    }
+}
+
+game();
+
+if (playerScore === 5){
+    console.log('You win, way to go!');
+}
+console.log('You lose, sucker!')

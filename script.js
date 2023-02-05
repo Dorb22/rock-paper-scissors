@@ -1,5 +1,7 @@
-let playerScore;
-let computerScore;
+let playerScore = 0;
+let computerScore = 0;
+let result;
+let resultSentence;
 
 function getComputerChoice() {
     const com = Math.floor(Math.random() * 3 + 1);
@@ -15,41 +17,69 @@ function getComputerChoice() {
 }
 
 function playRound (playerSelection, computerSelection){
-    const player = prompt ('Type rock, paper or scissors.', 'rock');
-    const slicePlayer = player.slice(0,1);
-    const sliceRest = player.slice(1);
-    playerSelection = slicePlayer.toUpperCase() + sliceRest.toLowerCase();
     computerSelection = getComputerChoice();
     if (playerSelection === computerSelection){
-        console.log(`It's a draw! ${playerSelection} vs ${computerSelection}.`);
+        result = `It's a draw! ${playerSelection} vs ${computerSelection}.`;
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Rock'){
-        console.log('You win! Paper beats Rock.');
         ++playerScore;
+        result = 'You win! Paper beats Rock.';      
     }
     else if (playerSelection === 'Rock' && computerSelection === 'Scissors'){
-        console.log('You win! Rock beats Scissors.');
         ++playerScore;
+        result = 'You win! Rock beats Scissors.';
     }
     else if (playerSelection === 'Scissors' && computerSelection === 'Paper'){
-        console.log('You win! Scissors beats Paper.');
         ++playerScore;
+        result = 'You win! Scissors beats Paper.';
     }
     else {
-        console.log (`You lose! ${computerSelection} beats ${playerSelection}`);
         ++computerScore;
-    }
-    ;
-}
-
-function game(){
-    for (playerScore = 0, computerScore=0; playerScore < 5, computerScore <5;){
-        playRound();
-        console.log(`Your Score: ${playerScore} Computer Score: ${computerScore}`);
+        result = `You lose! ${computerSelection} beats ${playerSelection}`;
     }
 }
 
-game();
+function showResult(){
+    const results = document.querySelector('.results');
+    results.textContent = result;
+}
+
+function showScoreBoard() {
+    const scoreboard = document.querySelector('.scoreboard');
+    scoreboard.textContent = `Your Score: ${playerScore}  Computer Score: ${computerScore}`  ;
+}
+
+const rock = document.querySelector('.rock');
+rock.addEventListener('click', () => {
+    playRound('Rock');
+    showResult();
+    showScoreBoard();
+    }
+);
+
+const paper = document.querySelector('.paper');
+paper.addEventListener('click', () => {
+    playRound('Paper');
+    showResult();
+    showScoreBoard();
+    }
+);
+
+const scissors = document.querySelector('.scissors');
+scissors.addEventListener('click', () => {
+    playRound('Scissors');
+    showResult();
+    showScoreBoard();
+    }
+);
+
+
+
+
+
+
+
+
 
     
 
