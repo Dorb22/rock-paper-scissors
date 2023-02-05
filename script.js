@@ -1,7 +1,6 @@
 let playerScore = 0;
 let computerScore = 0;
 let result;
-let resultSentence;
 
 function getComputerChoice() {
     const com = Math.floor(Math.random() * 3 + 1);
@@ -37,51 +36,54 @@ function playRound (playerSelection, computerSelection){
         ++computerScore;
         result = `You lose! ${computerSelection} beats ${playerSelection}`;
     }
-}
-
-function showResult(){
     const results = document.querySelector('.results');
     results.textContent = result;
-}
-
-function showScoreBoard() {
     const scoreboard = document.querySelector('.scoreboard');
-    scoreboard.textContent = `Your Score: ${playerScore}  Computer Score: ${computerScore}`  ;
+    scoreboard.textContent = `Your Score: ${playerScore}  Computer Score: ${computerScore}`;
+    showEnd();
 }
-
 
 const rock = document.querySelector('.rock');
 rock.addEventListener('click', function rock () {
-    if(playerScore === 5 || computerScore ===5){
+    if(playerScore === 5 || computerScore === 5){
         return;
     }
     playRound('Rock');
-    showResult();
-    showScoreBoard();
     }
 );
 
 const paper = document.querySelector('.paper');
 paper.addEventListener('click', function paper () {
     if(playerScore === 5 || computerScore ===5){
+        showEnd();
         return;
     }
     playRound('Paper');
-    showResult();
-    showScoreBoard();
     }
 );
 
 const scissors = document.querySelector('.scissors');
 scissors.addEventListener('click', function scissors () {
     if(playerScore === 5 || computerScore ===5){
+        showEnd();
         return;
     }
+
     playRound('Scissors');
-    showResult();
-    showScoreBoard();
     }
 );
+
+function showEnd(){
+if (playerScore === 5){
+    const end = document.querySelector('.end');
+    end.textContent = 'Congratulations';
+}
+else if (computerScore === 5){
+    const end = document.querySelector('.end');
+    end.textContent = 'Sorry';
+}
+}
+
 
 
 
