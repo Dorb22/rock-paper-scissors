@@ -1,13 +1,9 @@
-function game(){
-    for (playerScore = 0, computerScore=0; playerScore < 5, computerScore <5;){
-        playRound();
-        console.log(`Your Score: ${playerScore} Computer Score: ${computerScore}`);
-    }
+function showResult(){
+    const results = document.querySelector('.results');
+    results.textContent = result;
 }
 
-game();
-
-if (playerScore === 5){
-    console.log('You win, way to go!');
+function showScoreBoard() {
+    const scoreboard = document.querySelector('.scoreboard');
+    scoreboard.textContent = `Your Score: ${playerScore}  Computer Score: ${computerScore}`;
 }
-console.log('You lose, sucker!')

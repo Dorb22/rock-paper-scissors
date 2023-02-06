@@ -1,11 +1,83 @@
+@font-face{
+    src: url(fonts/neuropol.otf);
+    font-family: neuropol;
+}
+
+@font-face{
+    src: url(fonts/spaceage.ttf);
+    font-family: spaceage;
+}
+
+body{
+    background-image: linear-gradient(#002726, rgb(0, 0, 0));
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height:100vh;
+    margin: 10px;
+    font-family: neuropol, sans serif;
+}
+
+.game-name{
+    color: #09bc8a;
+    text-align: center;
+    font-size: 80px;
+    font-weight: 500px;
+    font-family: spaceage, sans serif;
+    animation: shine 3s cubic-bezier(0.06, 0.52, 0.49, 1.04);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes shine {
+    0% {
+        filter: none;
+    }
+    100%{
+        filter: drop-shadow(0px 0px 30px #b5f4ff90);
+    }
+}
+
 .results{
-    background-color:pink;
+    text-align: center;
 }
 
 .scoreboard{
-    background-color: yellow;
+    color: #7de6f9;
+    font-size: 40px;
+    font-weight: 400;
+    justify-content: center;
+    display: flex;
+    gap: 10%;
 }
 
-.end{
-    background-color: aqua;
+.symbol{
+    height: 200px;
+    width: auto;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+    transition: all 300ms ease-out;
 }
+
+.symbol:hover{
+    transform: scale(1.5);
+    filter: invert(100%) sepia(3%) saturate(13%) hue-rotate(81deg) brightness(106%) contrast(106%) drop-shadow(0px 0px 10px #7cffc4);
+}
+
+.options{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20%;
+    margin: 10px;
+}
+
+.bottom{
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
